@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>السبحة الإلكترونية - طريق الهدى</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+background:#eef5ef;
+text-align:center;
+padding:30px;
+}
+
+h1{
+color:#0f7b45;
+margin-bottom:30px;
+font-size:34px;
+}
+
+#count{
+font-size:70px;
+font-weight:bold;
+margin:30px 0;
+color:#0f7b45;
+}
+
+button{
+
+width:220px;
+height:60px;
+
+border:none;
+border-radius:18px;
+
+font-size:22px;
+
+margin:10px;
+
+cursor:pointer;
+
+}
+
+#tasbeeh{
+
+background:#0f7b45;
+
+color:white;
+
+}
+
+#reset{
+
+background:#d63031;
+
+color:white;
+
+}
+
+.back{
+
+display:inline-block;
+
+margin-top:30px;
+
+text-decoration:none;
+
+background:white;
+
+padding:15px 25px;
+
+border-radius:15px;
+
+color:#0f7b45;
+
+font-weight:bold;
+
+box-shadow:0 4px 10px rgba(0,0,0,.1);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>📿 السبحة الإلكترونية</h1>
+
+<div id="count">0</div>
+
+<button id="tasbeeh">
+
+سبحان الله
+
+</button>
+
+<br>
+
+<button id="reset">
+
+إعادة التصفير
+
+</button>
+
+<br>
+
+<a class="back" href="../index.html">
+
+🏠 الرجوع للرئيسية
+
+</a>
+
+<script>
+
+let count=localStorage.getItem("tasbeeh");
+
+if(count===null){
+
+count=0;
+
+}
+
+document.getElementById("count").innerText=count;
+
+document.getElementById("tasbeeh").onclick=function(){
+
+count++;
+
+document.getElementById("count").innerText=count;
+
+localStorage.setItem("tasbeeh",count);
+
+}
+
+document.getElementById("reset").onclick=function(){
+
+count=0;
+
+document.getElementById("count").innerText=count;
+
+localStorage.setItem("tasbeeh",0);
+
+}
+
+</script>
+
+</body>
+
+</html>

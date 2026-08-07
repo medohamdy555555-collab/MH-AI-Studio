@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>القرآن الكريم | طريق الهدى</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+body{
+background:#eef5ef;
+}
+
+.container{
+padding:20px;
+}
+
+input{
+width:100%;
+padding:15px;
+font-size:18px;
+border:none;
+border-radius:15px;
+margin-bottom:20px;
+outline:none;
+}
+
+.surah{
+
+display:block;
+
+background:white;
+
+padding:18px;
+
+margin-bottom:12px;
+
+border-radius:15px;
+
+text-decoration:none;
+
+color:#0f7b45;
+
+font-size:22px;
+
+font-weight:bold;
+
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+}
+
+.back{
+
+display:block;
+
+margin-top:20px;
+
+background:#0f7b45;
+
+color:white;
+
+padding:16px;
+
+border-radius:15px;
+
+text-align:center;
+
+text-decoration:none;
+
+font-size:20px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>📖 القرآن الكريم</h1>
+
+<p>اختر السورة</p>
+
+</header>
+
+<div class="container">
+
+<input
+type="text"
+id="search"
+placeholder="ابحث عن سورة...">
+
+<div id="surahs"></div>
+
+<a class="back" href="../index.html">
+
+🏠 العودة للرئيسية
+
+</a>
+
+</div>
+
+<script>
+
+let all=[];
+
+fetch("../data/surahs.json")
+
+.then(r=>r.json())
+
+.then(data=>{
+
+all=data;
+
+draw(data);
+
+});
+
+function draw(arr){
+
+let html="";
+
+arr.forEach(s=>{
+
+html+=`
+
+<a class="surah"
+
+href="reader.html?id=${s.id}&name=${encodeURIComponent(s.name)}">
+
+${s.id} - ${s.name}
+
+</a>
+
+`;
+
+});
+
+document.getElementById("surahs").innerHTML=html;
+
+}
+
+document.getElementById("search").addEventListener("input",function(){
+
+draw(
+
+all.filter(
+
+s=>s.name.includes(this.value)
+
+)
+
+);
+
+});
+
+</script>
+
+</body>
+
+</html>

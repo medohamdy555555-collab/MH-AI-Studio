@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>طريق الهدى</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+background:#eef5ef;
+padding:20px;
+}
+
+header{
+background:#0f7b45;
+color:white;
+padding:25px;
+border-radius:20px;
+text-align:center;
+margin-bottom:20px;
+}
+
+.card{
+background:white;
+padding:18px;
+border-radius:15px;
+margin-bottom:15px;
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.card h2{
+color:#0f7b45;
+margin-bottom:10px;
+}
+
+.menu{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:15px;
+
+margin-top:20px;
+
+}
+
+.btn{
+
+background:white;
+
+padding:20px;
+
+text-decoration:none;
+
+text-align:center;
+
+border-radius:18px;
+
+font-size:20px;
+
+font-weight:bold;
+
+color:#0f7b45;
+
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+transition:.2s;
+
+}
+
+.btn:hover{
+
+transform:scale(1.05);
+
+}
+
+footer{
+
+text-align:center;
+
+margin-top:30px;
+
+color:#555;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🕌 طريق الهدى</h1>
+
+<p>رفيقك اليومي في العبادة</p>
+
+</header>
+
+<div class="card">
+
+<h2>📅 التاريخ الهجري</h2>
+
+<p id="hijri">
+جارٍ التحميل...
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🤲 دعاء اليوم</h2>
+
+<p id="dua">
+
+اللهم أعني على ذكرك وشكرك وحسن عبادتك.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>📖 آية اليوم</h2>
+
+<p>
+
+﴿ فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ ﴾
+
+</p>
+
+</div>
+
+<div class="menu">
+
+<a class="btn" href="pages/quran.html">
+📖 القرآن
+</a>
+
+<a class="btn" href="pages/prayer.html">
+🕌 الصلاة
+</a>
+
+<a class="btn" href="pages/adhkar.html">
+📿 الأذكار
+</a>
+
+<a class="btn" href="pages/tasbeeh.html">
+📿 السبحة
+</a>
+
+<a class="btn" href="pages/settings.html">
+⚙️ الإعدادات
+</a>
+
+</div>
+
+<footer>
+
+طريق الهدى © 2026
+
+</footer>
+
+<script>
+
+fetch("https://api.aladhan.com/v1/gToH")
+
+.then(r=>r.json())
+
+.then(data=>{
+
+let h=data.data.hijri;
+
+document.getElementById("hijri").innerText=
+
+`${h.weekday.ar} ${h.day} ${h.month.ar} ${h.year} هـ`;
+
+});
+
+</script>
+
+</body>
+
+</html>

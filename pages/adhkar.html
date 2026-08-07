@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الأذكار - طريق الهدى</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+background:#eef5ef;
+padding:20px;
+}
+
+header{
+background:#0f7b45;
+color:white;
+text-align:center;
+padding:25px;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+margin-bottom:15px;
+border-radius:15px;
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.card h2{
+color:#0f7b45;
+margin-bottom:10px;
+font-size:22px;
+}
+
+.card p{
+font-size:18px;
+line-height:1.8;
+margin-bottom:15px;
+}
+
+button{
+background:#0f7b45;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:12px;
+font-size:18px;
+cursor:pointer;
+}
+
+.back{
+display:block;
+text-align:center;
+margin-top:20px;
+background:white;
+padding:15px;
+border-radius:15px;
+text-decoration:none;
+font-weight:bold;
+color:#0f7b45;
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>📿 الأذكار</h1>
+
+<p>اذكر الله يذكرك</p>
+
+</header>
+
+<div class="card">
+
+<h2>🌅 ذكر الصباح</h2>
+
+<p>
+أصبحنا وأصبح الملك لله رب العالمين.
+</p>
+
+<button onclick="finish(this)">
+تمت القراءة ✓
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>🌙 ذكر المساء</h2>
+
+<p>
+أمسينا وأمسى الملك لله رب العالمين.
+</p>
+
+<button onclick="finish(this)">
+تمت القراءة ✓
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>😴 ذكر النوم</h2>
+
+<p>
+باسمك اللهم أموت وأحيا.
+</p>
+
+<button onclick="finish(this)">
+تمت القراءة ✓
+</button>
+
+</div>
+
+<a href="../index.html" class="back">
+
+🏠 العودة للرئيسية
+
+</a>
+
+<script>
+
+function finish(btn){
+
+btn.innerHTML="✅ تم";
+
+btn.disabled=true;
+
+btn.style.background="#777";
+
+}
+
+</script>
+
+</body>
+
+</html>
