@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>طريق الهدى</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:100vh;
+
+background:#0f7b45;
+
+overflow:hidden;
+
+color:white;
+
+flex-direction:column;
+
+}
+
+.logo{
+
+font-size:90px;
+
+animation:float 2s infinite;
+
+}
+
+h1{
+
+margin-top:20px;
+
+font-size:42px;
+
+}
+
+p{
+
+margin-top:15px;
+
+font-size:20px;
+
+opacity:.9;
+
+}
+
+.loader{
+
+margin-top:40px;
+
+width:70px;
+
+height:70px;
+
+border:6px solid rgba(255,255,255,.3);
+
+border-top:6px solid white;
+
+border-radius:50%;
+
+animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="logo">🕌</div>
+
+<h1>طريق الهدى</h1>
+
+<p>رفيقك اليومي للطاعة والذكر</p>
+
+<div class="loader"></div>
+
+<script>
+
+setTimeout(()=>{
+
+location.href="index.html";
+
+},2500);
+
+</script>
+
+</body>
+</html>

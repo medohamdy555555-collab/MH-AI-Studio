@@ -1,0 +1,5 @@
+TOKEN = "8669605957:AAGkc2vb3qztPhVyQBZetxj7SSTRN2G1dpU"
+
+DOWNLOAD_FOLDER = "downloads"
+
+BOT_NAME = "MH AI Studio"

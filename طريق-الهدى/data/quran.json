@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قارئ القرآن</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+body{
+background:#eef5ef;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:20px;
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+h1{
+text-align:center;
+color:#0f7b45;
+margin-bottom:20px;
+}
+
+.ayah{
+font-size:28px;
+line-height:2.5;
+text-align:center;
+padding:15px 0;
+border-bottom:1px solid #eee;
+}
+
+.back{
+display:block;
+margin-top:20px;
+background:#0f7b45;
+color:white;
+text-align:center;
+padding:16px;
+border-radius:15px;
+text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1 id="title">جارٍ التحميل...</h1>
+
+<div id="content"></div>
+
+</div>
+
+<a class="back" href="quran.html">
+
+🏠 العودة للسور
+
+</a>
+
+<script>
+
+const params=new URLSearchParams(location.search);
+
+const id=parseInt(params.get("id"));
+
+fetch("../data/quran.json")
+
+.then(r=>r.json())
+
+.then(data=>{
+
+const surah=data.find(s=>s.id===id);
+
+if(!surah){
+
+document.getElementById("title").textContent="السورة غير موجودة";
+
+return;
+
+}
+
+document.getElementById("title").textContent=surah.name;
+
+let html="";
+
+surah.ayahs.forEach((a,index)=>{
+
+html+=`<div class="ayah">${a} ﴿${index+1}﴾</div>`;
+
+});
+
+document.getElementById("content").innerHTML=html;
+
+});
+
+</script>
+
+</body>
+</html>

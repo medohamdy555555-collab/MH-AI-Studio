@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قارئ القرآن | طريق الهدى</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+background:#eef5ef;
+padding:20px;
+direction:rtl;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+h1{
+text-align:center;
+color:#0f7b45;
+margin-bottom:20px;
+}
+
+.ayah{
+font-size:28px;
+line-height:2.3;
+padding:15px;
+border-bottom:1px solid #eee;
+text-align:center;
+}
+
+.back{
+display:block;
+margin-top:20px;
+background:#0f7b45;
+color:white;
+text-decoration:none;
+text-align:center;
+padding:15px;
+border-radius:15px;
+font-size:20px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h1 id="title">جارٍ التحميل...</h1>
+
+<div id="content">
+جارٍ تحميل السورة...
+</div>
+
+</div>
+
+<a class="back" href="quran.html">🏠 الرجوع إلى السور</a>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const id = params.get("id");
+
+fetch("https://api.alquran.cloud/v1/surah/" + id)
+
+.then(res => res.json())
+
+.then(data => {
+
+document.getElementById("title").innerText = data.data.englishName + " - " + data.data.name;
+
+let html = "";
+
+data.data.ayahs.forEach(a => {
+
+html += `<div class="ayah">${a.text} ﴿${a.numberInSurah}﴾</div>`;
+
+});
+
+document.getElementById("content").innerHTML = html;
+
+})
+
+.catch(() => {
+
+document.getElementById("content").innerHTML = "<h2>حدث خطأ أثناء تحميل السورة.</h2>";
+
+});
+
+</script>
+
+</body>
+</html>

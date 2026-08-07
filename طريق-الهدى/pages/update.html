@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>التحقق من التحديثات | طريق الهدى</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+background:#eef5ef;
+padding:20px;
+}
+
+header{
+background:#0f7b45;
+color:white;
+padding:25px;
+text-align:center;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:18px;
+box-shadow:0 4px 12px rgba(0,0,0,.1);
+text-align:center;
+}
+
+#status{
+font-size:22px;
+margin:20px 0;
+color:#0f7b45;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+background:#0f7b45;
+color:white;
+font-size:20px;
+cursor:pointer;
+}
+
+.back{
+display:block;
+margin-top:20px;
+text-align:center;
+background:white;
+padding:15px;
+border-radius:15px;
+text-decoration:none;
+font-size:20px;
+font-weight:bold;
+color:#0f7b45;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🔄 التحقق من التحديثات</h1>
+
+</header>
+
+<div class="card">
+
+<h2>الإصدار الحالي</h2>
+
+<p>1.0.0</p>
+
+<div id="status">
+
+اضغط على الزر للتحقق من وجود تحديثات.
+
+</div>
+
+<button onclick="checkUpdate()">
+
+🔍 التحقق الآن
+
+</button>
+
+</div>
+
+<a class="back" href="../index.html">
+
+🏠 العودة للرئيسية
+
+</a>
+
+<script>
+
+const CURRENT_VERSION="1.0.0";
+
+/*
+ضع هنا رقم آخر إصدار عند نزول تحديث
+*/
+
+const LATEST_VERSION="1.0.0";
+
+function checkUpdate(){
+
+let status=document.getElementById("status");
+
+status.innerHTML="⏳ جاري التحقق...";
+
+setTimeout(()=>{
+
+if(CURRENT_VERSION===LATEST_VERSION){
+
+status.innerHTML="✅ أنت تستخدم أحدث إصدار.";
+
+}else{
+
+status.innerHTML="🚀 يوجد إصدار جديد: "+LATEST_VERSION;
+
+}
+
+},1500);
+
+}
+
+</script>
+
+</body>
+</html>

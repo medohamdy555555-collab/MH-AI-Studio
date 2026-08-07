@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الاستماع للقرآن | طريق الهدى</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+background:#eef5ef;
+padding:20px;
+}
+
+header{
+background:#0f7b45;
+color:white;
+padding:25px;
+text-align:center;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+margin-bottom:20px;
+}
+
+select{
+
+width:100%;
+padding:15px;
+font-size:18px;
+border-radius:12px;
+margin-bottom:15px;
+
+}
+
+audio{
+
+width:100%;
+
+margin-top:15px;
+
+}
+
+.back{
+
+display:block;
+
+margin-top:20px;
+
+text-align:center;
+
+background:#0f7b45;
+
+color:white;
+
+padding:15px;
+
+border-radius:15px;
+
+text-decoration:none;
+
+font-size:20px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🎧 الاستماع للقرآن</h1>
+
+<p>اختر السورة واستمع إليها</p>
+
+</header>
+
+<div class="card">
+
+<select id="surah">
+
+<option value="001.mp3">الفاتحة</option>
+<option value="002.mp3">البقرة</option>
+<option value="003.mp3">آل عمران</option>
+<option value="004.mp3">النساء</option>
+<option value="005.mp3">المائدة</option>
+
+</select>
+
+<button onclick="play()" style="width:100%;padding:15px;border:none;background:#0f7b45;color:white;border-radius:12px;font-size:20px;">
+▶ تشغيل
+</button>
+
+<audio id="player" controls></audio>
+
+</div>
+
+<a href="../index.html" class="back">
+
+🏠 العودة للرئيسية
+
+</a>
+
+<script>
+
+function play(){
+
+let file=document.getElementById("surah").value;
+
+let player=document.getElementById("player");
+
+/* غيّر الرابط إذا اخترت مصدرًا آخر للتلاوات */
+player.src="https://everyayah.com/data/Alafasy_128kbps/"+file;
+
+player.play();
+
+}
+
+</script>
+
+</body>
+</html>
